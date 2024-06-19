@@ -21,11 +21,13 @@ pnpm dev --filter <project-name>
 
 ### Projects List
 
-| Project Name | Description                                                          | Network Port |
-| ------------ | -------------------------------------------------------------------- | ------------ |
-| `web`        | Main website [intania.org](https://intania.org)                      | 3000         |
-| `link`       | Link shortener [intania.link](https://intania.link)                  | 3001         |
-| `tech`       | Tech department website [tech.intania.org](https://tech.intania.org) | 3002         |
+| Project Name | Description                                                                | Network Port |
+| ------------ | -------------------------------------------------------------------------- | ------------ |
+| `web`        | Main website [intania.org](https://intania.org)                            | 3000         |
+| `tech`       | Tech department website [tech.intania.org](https://tech.intania.org)       | 3001         |
+| `link`       | Link shortener [intania.link](https://intania.link)                        | 3002         |
+| `account`    | OIDC account management [account.intania.org](https://account.intania.org) | 3003         |
+| `election`   | Election system [election.intania.org](https://election.intania.org)       | 3004         |
 
 ## Turbo
 

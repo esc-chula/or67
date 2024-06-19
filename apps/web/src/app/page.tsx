@@ -1,12 +1,12 @@
-import { Button } from "@repo/ui/components/ui/button";
+import { Button } from '@repo/ui/components/ui/button';
 
 export default function Page(): JSX.Element {
-  return (
-    <main>
-      <div>
-        <p className="text-3xl bg-neutral-500">esc website</p>
-        <Button>test</Button>
-      </div>
-    </main>
-  );
+    return (
+        <main>
+            <div>
+                <p className='bg-neutral-500 text-3xl'>esc website</p>
+                <Button>test</Button>
+            </div>
+        </main>
+    );
 }
