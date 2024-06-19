@@ -1,9 +1,7 @@
-import "./globals.css";
-import "@repo/ui/styles.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import { ibmPlexSansThai, manrope } from "@/libs/font";
+import "@/styles/globals.css";
+import "@repo/ui/styles.css";
 
 export const metadata: Metadata = {
   title: "Create Turborepo",
@@ -17,7 +15,9 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${manrope.variable} ${ibmPlexSansThai.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }
