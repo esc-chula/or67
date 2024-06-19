@@ -1,6 +1,11 @@
 {
     "$schema": "https://turbo.build/schema.json",
-    "globalEnv": ["NOCODB_API_TOKENS"],
+    "globalEnv": [
+        "NOCODB_API_ENDPOINT",
+        "NOCODB_API_TOKENS",
+        "LINK_APP_BASE_URL",
+        "LINK_APP_NOCODB_TABLE_ID"
+    ],
     "globalDependencies": ["**/.env.*local"],
     "tasks": {
         "build": {

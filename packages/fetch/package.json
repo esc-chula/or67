@@ -1,0 +1,12 @@
+{
+    "name": "@repo/fetch",
+    "private": true,
+    "exports": {
+        ".": "./src/fetch.ts",
+        "./types": "./src/interfaces/interfaces.ts"
+    },
+    "dependencies": {
+        "@repo/config": "workspace:*",
+        "axios": "^1.7.2"
+    }
+}
