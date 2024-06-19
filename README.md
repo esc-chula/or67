@@ -1,58 +1,72 @@
-# Turborepo Tailwind CSS starter
+# ESC Core Website
 
-This is an official starter Turborepo.
+This is a monorepo for every front-end project in the ESC Core Website.
 
-## Using this example
+## Getting Started
 
-Run the following command:
+### Local Development
+
+`node v18 w/ pnpm v8`
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start development server
+pnpm dev
+
+# Start specific project
+pnpm dev --filter <project-name>
+```
+
+### Projects List
+
+| Project Name | Description                                                          | Network Port |
+| ------------ | -------------------------------------------------------------------- | ------------ |
+| `web`        | Main website [intania.org](https://intania.org)                      | 3000         |
+| `link`       | Link shortener [intania.link](https://intania.link)                  | 3001         |
+| `tech`       | Tech department website [tech.intania.org](https://tech.intania.org) | 3002         |
+
+## Turbo
+
+### Package Installation
+
+```bash
+# Install a package in a workspace
+pnpm add <package> --filter <workspace>
+
+# Remove a package from a workspace
+pnpm uninstall <package> --filter <workspace>
+
+# Upgrade a package in a workspace
+pnpm update <package> --filter <workspace>
+```
+
+### Add ui components
+
+Use the pre-made script:
 
 ```sh
-npx create-turbo@latest -e with-tailwind
+pnpm ui:add <component-name>
 ```
 
-## What's inside?
+> This works just like the add command in the `shadcn/ui` CLI.
 
-This Turborepo includes the following packages/apps:
+### Add a new app
 
-### Apps and Packages
+Turborepo offer a simple command to add a new app:
 
-- `docs`: a [Next.js](https://nextjs.org/) app with [Tailwind CSS](https://tailwindcss.com/)
-- `web`: another [Next.js](https://nextjs.org/) app with [Tailwind CSS](https://tailwindcss.com/)
-- `ui`: a stub React component library with [Tailwind CSS](https://tailwindcss.com/) shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Building packages/ui
-
-This example is set up to produce compiled styles for `ui` components into the `dist` directory. The component `.tsx` files are consumed by the Next.js apps directly using `transpilePackages` in `next.config.js`. This was chosen for several reasons:
-
-- Make sharing one `tailwind.config.js` to apps and packages as easy as possible.
-- Make package compilation simple by only depending on the Next.js Compiler and `tailwindcss`.
-- Ensure Tailwind classes do not overwrite each other. The `ui` package uses a `ui-` prefix for it's classes.
-- Maintain clear package export boundaries.
-
-Another option is to consume `packages/ui` directly from source without building. If using this option, you will need to update the `tailwind.config.js` in your apps to be aware of your package locations, so it can find all usages of the `tailwindcss` class names for CSS compilation.
-
-For example, in [tailwind.config.js](packages/tailwind-config/tailwind.config.js):
-
-```js
-  content: [
-    // app content
-    `src/**/*.{js,ts,jsx,tsx}`,
-    // include packages if not transpiling
-    "../../packages/ui/*.{js,ts,jsx,tsx}",
-  ],
+```sh
+pnpm turbo gen workspace --name <app-name>
 ```
 
-If you choose this strategy, you can remove the `tailwindcss` and `autoprefixer` dependencies from the `ui` package.
+This will create a new empty app in the `apps` directory.
 
-### Utilities
+If you want, you can copy an existing app with:
 
-This Turborepo has some additional tools already setup for you:
+```sh
+pnpm turbo gen workspace --name <app-name> --copy
+```
 
-- [Tailwind CSS](https://tailwindcss.com/) for styles
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+> [!NOTE]
+> Remember to run `pnpm install` after copying an app.
