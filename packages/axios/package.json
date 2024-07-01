@@ -1,8 +1,8 @@
 {
-    "name": "@repo/fetch",
+    "name": "@repo/axios",
     "private": true,
     "exports": {
-        ".": "./src/fetch.ts",
+        ".": "./src/axios.ts",
         "./types": "./src/interfaces/interfaces.ts"
     },
     "dependencies": {
