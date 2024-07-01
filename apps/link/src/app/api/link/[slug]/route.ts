@@ -1,8 +1,8 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import { linkAppConfig } from '@repo/config';
-import { fetchNocoDB } from '@repo/fetch';
-import type { NocoDBGetResponse } from '@repo/fetch/types';
+import { axiosNocoDB } from '@repo/axios';
+import type { NocoDBGetResponse } from '@repo/axios/types';
 import type { AxiosResponse } from 'axios';
 import type { Link } from '@/server/interfaces/link';
 
@@ -17,7 +17,7 @@ export const GET = async (
     }
 ): Promise<NextResponse> => {
     try {
-        const links = await fetchNocoDB
+        const links = await axiosNocoDB
             .get(`/${linkAppConfig.LINK_APP_NOCODB_TABLE_ID}/records`, {
                 params: {
                     limit: 1000,
