@@ -28,6 +28,7 @@ pnpm dev --filter <project-name>
 | `link`       | Link shortener [intania.link](https://intania.link)                        | 3002         |
 | `account`    | OIDC account management [account.intania.org](https://account.intania.org) | 3003         |
 | `election`   | Election system [election.intania.org](https://election.intania.org)       | 3004         |
+| `or67`       | Orientation website 2567                                                   | 3005         |
 
 ## Turbo
 
