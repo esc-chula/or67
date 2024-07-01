@@ -1,26 +1,26 @@
 {
-  "private": true,
-  "scripts": {
-    "build": "dotenv -- turbo build",
-    "dev": "dotenv -- turbo dev",
-    "lint": "turbo lint",
-    "type-check": "turbo type-check",
-    "clean": "turbo clean",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "ui:add": "pnpm --filter @repo/ui ui:add"
-  },
-  "devDependencies": {
-    "@repo/typescript-config": "workspace:*",
-    "@types/node": "^20.11.24",
-    "dotenv-cli": "^7.4.2",
-    "eslint": "^8.57.0",
-    "prettier": "^3.2.5",
-    "prettier-plugin-tailwindcss": "^0.5.11",
-    "turbo": "latest"
-  },
-  "packageManager": "pnpm@8.15.6",
-  "engines": {
-    "node": ">=18"
-  },
-  "name": "with-tailwind"
+    "private": true,
+    "scripts": {
+        "build": "dotenv -- turbo build",
+        "dev": "dotenv -- turbo dev",
+        "lint": "turbo lint",
+        "type-check": "turbo type-check",
+        "clean": "turbo clean",
+        "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+        "ui:add": "pnpm --filter @repo/ui ui:add"
+    },
+    "devDependencies": {
+        "@repo/typescript-config": "workspace:*",
+        "@types/node": "^20.11.24",
+        "dotenv-cli": "^7.4.2",
+        "eslint": "^8.57.0",
+        "prettier": "^3.2.5",
+        "prettier-plugin-tailwindcss": "^0.5.11",
+        "turbo": "latest"
+    },
+    "packageManager": "pnpm@8.15.6",
+    "engines": {
+        "node": ">=18"
+    },
+    "name": "with-tailwind"
 }
