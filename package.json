@@ -1,4 +1,6 @@
 {
+    "name": "esc-core-website",
+    "type": "module",
     "private": true,
     "scripts": {
         "build": "dotenv -- turbo build",
@@ -21,6 +23,5 @@
     "packageManager": "pnpm@8.15.6",
     "engines": {
         "node": ">=18"
-    },
-    "name": "with-tailwind"
+    }
 }

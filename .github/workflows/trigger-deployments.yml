@@ -1,0 +1,34 @@
+name: Trigger Vercel Deployments
+
+on:
+    workflow_dispatch:
+
+jobs:
+    run-python-script:
+        runs-on: ubuntu-latest
+        permissions:
+            actions: write
+            contents: write
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Pull latest changes
+              uses: actions/checkout@v2
+              with:
+                  ref: main
+                  fetch-depth: 0
+
+            - name: Install Python
+              uses: actions/setup-python@v2
+              with:
+                  python-version: '3.x'
+
+            - name: Run Python script And Commit
+              run: |
+                  python ./scripts/update-readme.py
+                  git config --global user.email "${{ secrets.USER_EMAIL }}"
+                  git config --global user.name "${{ secrets.USER_NAME }}"
+                  git add README.md
+                  git commit -m "Update README.md"
+                  git push origin main

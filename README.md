@@ -72,3 +72,7 @@ pnpm turbo gen workspace --name <app-name> --copy
 
 > [!NOTE]
 > Remember to run `pnpm install` after copying an app.
+
+## Deployments
+
+Deployment ID: `yVS04etiIfWiiw6E`
