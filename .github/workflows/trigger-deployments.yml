@@ -1,6 +1,9 @@
 name: Trigger Vercel Deployments
 
 on:
+    push:
+        branches:
+            - '**'
     workflow_dispatch:
 
 jobs:
@@ -16,7 +19,7 @@ jobs:
             - name: Pull latest changes
               uses: actions/checkout@v2
               with:
-                  ref: main
+                  ref: ${{ github.ref }}
                   fetch-depth: 0
 
             - name: Setup Node.js
@@ -26,9 +29,9 @@ jobs:
 
             - name: Run Node.js script and Commit
               run: |
-                  node ./scripts/deploy.mjs
+                  node ./scripts/updateReadme.mjs
                   git config --global user.email "${{ secrets.USER_EMAIL }}"
                   git config --global user.name "${{ secrets.USER_NAME }}"
                   git add README.md
                   git commit -m "Update README.md"
-                  git push origin main
+                  git push origin ${{ github.ref }}
