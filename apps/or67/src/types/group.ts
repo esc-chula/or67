@@ -1,7 +1,7 @@
-import { ISubject } from './subject';
+import { Subject } from './subject';
 
 export interface Group {
     groupCode: string;
     range: { start: number; end: number };
-    subjects: ISubject[];
+    subjects: Subject[];
 }

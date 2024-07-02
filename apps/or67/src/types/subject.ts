@@ -13,7 +13,7 @@ export interface Section {
     classes: Class[];
 }
 
-export interface ISubject {
+export interface Subject {
     code: string;
     name: string;
     lectureCredit: number;
