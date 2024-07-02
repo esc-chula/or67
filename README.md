@@ -76,4 +76,4 @@ pnpm turbo gen workspace --name <app-name> --copy
 
 ## Deployments
 
-Deployment ID: `lacopwqZtt0RkkuB`
+Deployment ID: `0ouBs8YeTuplDnny`
