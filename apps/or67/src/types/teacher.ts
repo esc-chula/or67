@@ -6,4 +6,3 @@ export interface Teacher {
     room: string;
     program: Program;
 }
-[];
