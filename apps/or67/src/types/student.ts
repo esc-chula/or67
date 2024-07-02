@@ -1,6 +1,6 @@
 import { Program } from './program';
 
-export interface IStudent {
+export interface Student {
     index: number;
     id: string;
     name: {

@@ -1,6 +1,6 @@
 import { Program } from './program';
 
-export interface ITeacher {
+export interface Teacher {
     range: { start: number; end: number };
     name: string;
     room: string;
