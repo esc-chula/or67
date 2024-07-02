@@ -29,7 +29,7 @@ jobs:
 
             - name: Run Node.js script and Commit
               run: |
-                  node ./scripts/updateReadme.mjs
+                  node ./scripts/deploy.mjs
                   git config --global user.email "${{ secrets.USER_EMAIL }}"
                   git config --global user.name "${{ secrets.USER_NAME }}"
                   git add README.md
