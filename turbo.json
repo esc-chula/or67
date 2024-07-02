@@ -4,7 +4,12 @@
         "NOCODB_API_ENDPOINT",
         "NOCODB_API_TOKENS",
         "LINK_APP_BASE_URL",
-        "LINK_APP_NOCODB_TABLE_ID"
+        "LINK_APP_NOCODB_TABLE_ID",
+
+        "NEXT_PUBLIC_OR67_STUDENTS",
+        "NEXT_PUBLIC_OR67_GROUPS",
+        "NEXT_PUBLIC_OR67_SUBJECTS",
+        "NEXT_PUBLIC_OR67_TEACHERS"
     ],
     "globalDependencies": ["**/.env.*local"],
     "tasks": {
