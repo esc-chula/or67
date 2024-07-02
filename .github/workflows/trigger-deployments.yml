@@ -4,7 +4,7 @@ on:
     workflow_dispatch:
 
 jobs:
-    run-python-script:
+    run-node-script:
         runs-on: ubuntu-latest
         permissions:
             actions: write
@@ -19,14 +19,14 @@ jobs:
                   ref: main
                   fetch-depth: 0
 
-            - name: Install Python
-              uses: actions/setup-python@v2
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
               with:
-                  python-version: '3.x'
+                  node-version: '16.x'
 
-            - name: Run Python script And Commit
+            - name: Run Node.js script and Commit
               run: |
-                  python ./scripts/update-readme.py
+                  node ./scripts/deploy.mjs
                   git config --global user.email "${{ secrets.USER_EMAIL }}"
                   git config --global user.name "${{ secrets.USER_NAME }}"
                   git add README.md
