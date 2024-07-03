@@ -1,3 +1,3 @@
 export const getStudentInfo = (): null => {
-	return null;
-}
+    return null;
+};

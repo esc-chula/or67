@@ -1,4 +1,4 @@
-import { Program } from './program';
+import type { Program } from './program';
 
 export interface Teacher {
     range: { start: number; end: number };

@@ -1,4 +1,4 @@
-import { Subject } from './subject';
+import type { Subject } from './subject';
 
 export interface Group {
     groupCode: string;

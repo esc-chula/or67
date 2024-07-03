@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/naming-convention -- casing should be an issue here */
+
 export enum Program {
     'วิศวกรรมคอมพิวเตอร์-โอลิมปิกวิชาการ',
     'วิศวกรรมคอมพิวเตอร์',
