@@ -37,21 +37,20 @@ describe('fetcher', () => {
     });
 
     test('throws an error if the response status is not 404 or 500', async () => {
-        const status = 400;
         global.fetch = vi.fn(() =>
             Promise.resolve({
                 ok: false,
-                status,
+                status: 400,
             })
         ) as Mock;
 
         await expect(fetcher('url')).rejects.toThrow(
-            `Request failed with status code ${status}`
+            `Request failed with status code 400`
         );
     });
 
     test('throws an error if the fetch fails', async () => {
-        global.fetch = vi.fn(() => Promise.reject()) as Mock;
+        global.fetch = vi.fn().mockRejectedValueOnce(new Error('Failed to fetch'));
 
         await expect(fetcher('url')).rejects.toThrow('Failed to fetch');
     });
