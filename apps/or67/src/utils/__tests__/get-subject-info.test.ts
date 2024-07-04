@@ -1,4 +1,12 @@
-import { afterEach, beforeEach, describe, expect, type Mock, test, vi } from 'vitest';
+import {
+    afterEach,
+    beforeEach,
+    describe,
+    expect,
+    type Mock,
+    test,
+    vi,
+} from 'vitest';
 import type { Subject } from '@/types/subject';
 import { getSubjectsInfo } from '../get-subject-info';
 import { fetcher } from '../data-fetcher';
@@ -30,19 +38,20 @@ const subjects: Subject[] = [
     },
 ];
 
-vi.mock('../data-fetcher')
+vi.mock('../data-fetcher');
 
 describe('getSubjectInfo', () => {
     beforeEach(() => {
-        vi.mocked(fetcher).mockImplementationOnce(async () => Promise.resolve(subjects));
-    })
+        vi.mocked(fetcher).mockImplementationOnce(async () =>
+            Promise.resolve(subjects)
+        );
+    });
 
     afterEach(() => {
         vi.resetAllMocks();
     });
 
     test('returns a subject', async () => {
-
         const subject = await getSubjectsInfo('2199001');
         expect(subject).toEqual(subjects[0]);
     });

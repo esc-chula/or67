@@ -13,7 +13,9 @@ export async function fetcher<ReturnType>(url: string): Promise<ReturnType> {
             case 500:
                 throw new Error('Internal server error');
             default:
-                throw new Error(`Request failed with status code ${res.status}`)
+                throw new Error(
+                    `Request failed with status code ${res.status}`
+                );
         }
     } catch (error) {
         if (error instanceof Error) {
