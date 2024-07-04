@@ -45,13 +45,13 @@ describe('fetcher', () => {
             })
         ) as Mock;
 
-        await expect(fetcher('url')).rejects.toThrow(`Request failed with status code ${status}`);
+        await expect(fetcher('url')).rejects.toThrow(
+            `Request failed with status code ${status}`
+        );
     });
 
     test('throws an error if the fetch fails', async () => {
-        global.fetch = vi.fn(() =>
-            Promise.reject()
-        ) as Mock;
+        global.fetch = vi.fn(() => Promise.reject()) as Mock;
 
         await expect(fetcher('url')).rejects.toThrow('Failed to fetch');
     });
