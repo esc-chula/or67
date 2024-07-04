@@ -1,7 +1,7 @@
 import type { Program } from './program';
 
 export interface Student {
-    index: number;
+    index: string;
     id: string;
     name: {
         th: string;

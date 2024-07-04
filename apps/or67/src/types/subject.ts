@@ -14,6 +14,7 @@ export interface Section {
 }
 
 export interface Subject {
+    index: string;
     code: string;
     name: string;
     lectureCredit: number;
