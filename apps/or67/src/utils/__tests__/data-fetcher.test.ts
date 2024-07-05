@@ -50,7 +50,9 @@ describe('fetcher', () => {
     });
 
     test('throws an error if the fetch fails', async () => {
-        global.fetch = vi.fn().mockRejectedValueOnce(new Error('Failed to fetch'));
+        global.fetch = vi
+            .fn()
+            .mockRejectedValueOnce(new Error('Failed to fetch'));
 
         await expect(fetcher('url')).rejects.toThrow('Failed to fetch');
     });
