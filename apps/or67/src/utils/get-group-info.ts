@@ -1,17 +1,17 @@
 import type { Group } from '@/types/group';
 import { fetcher } from './data-fetcher';
+import { validateStudentIndex } from './validator';
 
-export const getGroupsInfo = async (studentIndex: string): Promise<Group> => {
-    const studentIndexPattern = /^[1-9][0-9]{0,3}$/;
-    if (!studentIndexPattern.test(studentIndex)) {
+export const getGroupInfo = async (studentIndex: string): Promise<Group> => {
+    if (!validateStudentIndex(studentIndex)) {
         throw new Error('Invalid student index');
     }
 
-    const data = await fetcher<Group[]>(
+    const groups = await fetcher<Group[]>(
         `${process.env.NEXT_PUBLIC_OR67_SUBJECTS}`
     );
 
-    const groupInfo = data.find(
+    const groupInfo = groups.find(
         (group: Group) =>
             group.range.start <= parseInt(studentIndex) &&
             group.range.end >= parseInt(studentIndex)

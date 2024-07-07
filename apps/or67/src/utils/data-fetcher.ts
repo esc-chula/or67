@@ -3,7 +3,6 @@ export async function fetcher<ReturnType>(url: string): Promise<ReturnType> {
         const res = await fetch(url);
         if (res.ok) {
             const data = (await res.json()) as ReturnType;
-
             return data;
         }
 

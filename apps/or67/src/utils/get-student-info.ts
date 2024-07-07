@@ -1,26 +1,17 @@
 import type { Student } from '@/types/student';
+import { fetcher } from './data-fetcher';
+import { validateStudentId } from './validator';
 
-const validateStudentId = (studentId: string): boolean => {
-    const pattern = /^\d{10}$/; // matches any digits equivalent to 0-9 and has 10 digits
-    return pattern.test(studentId);
-};
-
-export const getStudentInfo = async (
-    studentId: string
-): Promise<Student | undefined> => {
+export const getStudentInfo = async (studentId: string): Promise<Student> => {
     if (!validateStudentId(studentId)) {
         throw new Error('Invalid student ID format');
     }
 
-    const data: Student[] | null = await fetch(`${process.env.NEXT_PUBLIC_OR67_STUDENTS}`).then(
-        (response) => response.json()
-    ) as Student[] | null;
+    const students = await fetcher<Student[]>(
+        `${process.env.NEXT_PUBLIC_OR67_STUDENTS}`
+    );
 
-    if (!data) {
-        throw new Error('Failed to fetch students data');
-    }
-
-    const studentData = data.find(
+    const studentData = students.find(
         (student: Student) => student.id === studentId
     );
 
