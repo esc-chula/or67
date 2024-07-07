@@ -1,11 +1,12 @@
-import { afterEach, beforeEach, describe, expect, type Mock, test, vi } from 'vitest';
-import { Student } from '@/types/student';
+import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
+import type { Student } from '@/types/student';
 import { getStudentInfo } from '../get-student-info';
+import { fetcher } from '../data-fetcher';
 
 const students: Student[] = [
     {
         index: '1',
-        id: '1234567890',
+        id: '6731000021',
         name: {
             th: 'นายสุขี  ชีวัน',
             en: 'Mr. Sukee  Cheewan',
@@ -14,7 +15,7 @@ const students: Student[] = [
     },
     {
         index: '2',
-        id: '0123456789',
+        id: '6731000121',
         name: {
             th: 'นางสาวเลิศเลอ  เพอร์เฟ็ค',
             en: 'Miss Lerdler  Perfect',
@@ -23,7 +24,7 @@ const students: Student[] = [
     },
     {
         index: '3',
-        id: '4567890123',
+        id: '6731000221',
         name: {
             th: 'นายบักคนซั่ว  จังอ้าย',
             en: 'Mr. Bakkhonsau  Jungeye',
@@ -32,13 +33,13 @@ const students: Student[] = [
     },
 ];
 
+vi.mock('../data-fetcher');
+
 describe('getStudentInfo function', () => {
     beforeEach(() => {
-        global.fetch = vi.fn(() =>
-            Promise.resolve({
-                json: () => Promise.resolve(students),
-            })
-        ) as Mock;
+        vi.mocked(fetcher).mockImplementationOnce(async () =>
+            Promise.resolve(students)
+        );
     });
 
     afterEach(() => {
@@ -46,7 +47,7 @@ describe('getStudentInfo function', () => {
     });
 
     test('Get student data with a valid student ID', async () => {
-        const student = await getStudentInfo('1234567890');
+        const student = await getStudentInfo('6731000021');
         expect(student).toEqual(students[0]);
     });
 
@@ -63,7 +64,7 @@ describe('getStudentInfo function', () => {
     });
 
     test('Error from a non-existent student ID', async () => {
-        await expect(() => getStudentInfo('6531000021')).rejects.toThrow(
+        await expect(() => getStudentInfo('6739999921')).rejects.toThrow(
             'Student ID not found'
         );
     });

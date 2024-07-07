@@ -9,7 +9,7 @@ import {
 } from 'vitest';
 import type { Group } from '@/types/group';
 import { fetcher } from '../data-fetcher';
-import { getGroupsInfo } from '../get-group-info';
+import { getGroupInfo } from '../get-group-info';
 
 const groups: Group[] = [
     {
@@ -59,19 +59,19 @@ describe('getGroupsInfo', () => {
     });
 
     test('throws an error if the student index is invalid', async () => {
-        await expect(getGroupsInfo('0')).rejects.toThrow(
+        await expect(getGroupInfo('0')).rejects.toThrow(
             'Invalid student index'
         );
 
-        await expect(getGroupsInfo('abc')).rejects.toThrow(
+        await expect(getGroupInfo('abc')).rejects.toThrow(
             'Invalid student index'
         );
 
-        await expect(getGroupsInfo('-2993')).rejects.toThrow(
+        await expect(getGroupInfo('-2993')).rejects.toThrow(
             'Invalid student index'
         );
 
-        await expect(getGroupsInfo('100000000')).rejects.toThrow(
+        await expect(getGroupInfo('100000000')).rejects.toThrow(
             'Invalid student index'
         );
     });
@@ -83,11 +83,11 @@ describe('getGroupsInfo', () => {
             })
         ) as Mock;
 
-        await expect(getGroupsInfo('3999')).rejects.toThrow('Group not found');
+        await expect(getGroupInfo('3999')).rejects.toThrow('Group not found');
     });
 
     test('returns a group', async () => {
-        const group1 = await getGroupsInfo('99');
+        const group1 = await getGroupInfo('99');
         expect(group1).toEqual(groups[0]);
     });
 });

@@ -1,19 +1,19 @@
 import type { Subject } from '@/types/subject';
 import { fetcher } from './data-fetcher';
+import { validateSubjectCode } from './validator';
 
 export const getSubjectsInfo = async (
     subjectCode: string
 ): Promise<Subject> => {
-    const subjectCodePattern = /^[0-9]{7}$/;
-    if (!subjectCodePattern.test(subjectCode)) {
+    if (!validateSubjectCode(subjectCode)) {
         throw new Error('Invalid subject code');
     }
 
-    const data = await fetcher<Subject[]>(
+    const subjects = await fetcher<Subject[]>(
         `${process.env.NEXT_PUBLIC_OR67_SUBJECTS}`
     );
 
-    const subject = data.find((s) => s.code === subjectCode);
+    const subject = subjects.find((s) => s.code === subjectCode);
     if (!subject) {
         throw new Error('Subject not found');
     }
