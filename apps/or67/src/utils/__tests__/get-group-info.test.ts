@@ -18,28 +18,8 @@ const groups: Group[] = [
         range: { start: 1, end: 99 },
         subjects: [
             {
-                index: '1',
                 code: '2199001',
-                name: 'Mathematics I',
-                lectureCredit: 3,
-                midterm: '3 กรกฎาคม 2564',
-                final: '4 กรกฎาคม 2564',
-                sections: [
-                    {
-                        section: 1,
-                        studentStart: 1,
-                        studentEnd: 30,
-                        classes: [
-                            {
-                                format: 'Lecture',
-                                day: 'Monday',
-                                timeStart: '08:00',
-                                timeEnd: '10:00',
-                                location: 'บ้าน',
-                            },
-                        ],
-                    },
-                ],
+                section: 1,
             },
         ],
     },

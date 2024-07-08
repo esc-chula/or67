@@ -6,7 +6,7 @@ import { fetcher } from '../data-fetcher';
 const students: Student[] = [
     {
         index: '1',
-        id: '6731000021',
+        id: '6631000021',
         name: {
             th: 'นายสุขี  ชีวัน',
             en: 'Mr. Sukee  Cheewan',
@@ -15,7 +15,7 @@ const students: Student[] = [
     },
     {
         index: '2',
-        id: '6731000121',
+        id: '6631000121',
         name: {
             th: 'นางสาวเลิศเลอ  เพอร์เฟ็ค',
             en: 'Miss Lerdler  Perfect',
@@ -24,7 +24,7 @@ const students: Student[] = [
     },
     {
         index: '3',
-        id: '6731000221',
+        id: '6631000221',
         name: {
             th: 'นายบักคนซั่ว  จังอ้าย',
             en: 'Mr. Bakkhonsau  Jungeye',
@@ -47,7 +47,7 @@ describe('getStudentInfo function', () => {
     });
 
     test('Get student data with a valid student ID', async () => {
-        const student = await getStudentInfo('6731000021');
+        const student = await getStudentInfo('6631000021');
         expect(student).toEqual(students[0]);
     });
 
@@ -64,7 +64,7 @@ describe('getStudentInfo function', () => {
     });
 
     test('Error from a non-existent student ID', async () => {
-        await expect(() => getStudentInfo('6739999921')).rejects.toThrow(
+        await expect(() => getStudentInfo('6639999921')).rejects.toThrow(
             'Student ID not found'
         );
     });

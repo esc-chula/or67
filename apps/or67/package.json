@@ -13,6 +13,7 @@
     "dependencies": {
         "@repo/axios": "workspace:*",
         "@repo/ui": "workspace:*",
+        "cookies-next": "^4.2.1",
         "framer-motion": "^11.2.13",
         "next": "^14.1.1",
         "react": "^18.2.0",
@@ -23,6 +24,7 @@
         "@repo/eslint-config": "workspace:*",
         "@repo/tailwind-config": "workspace:*",
         "@repo/typescript-config": "workspace:*",
+        "@testing-library/jest-dom": "^6.4.6",
         "@testing-library/react": "^16.0.0",
         "@types/node": "^20.11.24",
         "@types/react": "^18.2.61",
@@ -33,6 +35,7 @@
         "postcss": "^8.4.35",
         "tailwindcss": "^3.4.1",
         "typescript": "^5.3.3",
+        "vite-tsconfig-paths": "^4.3.2",
         "vitest": "^1.6.0"
     }
 }
