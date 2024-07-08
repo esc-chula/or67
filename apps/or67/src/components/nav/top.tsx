@@ -5,13 +5,16 @@ import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { ESCLogoWithText } from '@ui/components/esc';
 import { Button } from '@ui/components/ui/button';
+import { useUser } from '@/contexts/user-context';
 import { BookIcon, SignoutIcon } from '@/assets/icons';
 import { links } from './links';
 
 export function Top(): JSX.Element | null {
     const pathname = usePathname();
+    const { user, logout } = useUser();
 
-    if (!links.some((link) => link.href === pathname)) return null;
+    if (!user.student || !links.some((link) => link.href === pathname))
+        return null;
 
     return (
         <header className='bg-background sticky top-0 flex w-full max-w-6xl items-center justify-between border-b text-xl font-medium max-lg:mb-8 max-lg:p-4 lg:my-16 lg:rounded-full lg:border-b-0 lg:px-12 lg:py-6 lg:shadow-lg'>
@@ -36,7 +39,7 @@ export function Top(): JSX.Element | null {
                 <Link href='/handbook'>
                     <BookIcon className='fill-primary size-6 sm:size-7 lg:size-8' />
                 </Link>
-                <Button className='p-0' variant='link'>
+                <Button className='p-0' onClick={logout} variant='link'>
                     <SignoutIcon className='fill-primary size-6 sm:size-7 lg:size-8' />
                 </Button>
             </nav>

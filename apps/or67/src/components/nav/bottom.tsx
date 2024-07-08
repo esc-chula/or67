@@ -3,12 +3,15 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
 import { cn } from '@ui/lib/utils';
+import { useUser } from '@/contexts/user-context';
 import { links } from './links';
 
 export function Bottom(): JSX.Element | null {
     const pathname = usePathname();
+    const { user } = useUser();
 
-    if (!links.some((link) => link.href === pathname)) return null;
+    if (!user.student || !links.some((link) => link.href === pathname))
+        return null;
 
     return (
         <nav className='bg-background sticky bottom-0 mt-8 w-full border-t p-6 text-xs tracking-tighter max-lg:flex sm:text-sm md:text-base lg:hidden'>
