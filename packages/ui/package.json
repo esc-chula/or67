@@ -41,6 +41,7 @@
     "@radix-ui/react-toast": "^1.1.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "embla-carousel-react": "^8.1.6",
     "lucide-react": "^0.331.0",
     "next13-progressbar": "^1.2.0",
     "react-hook-form": "^7.50.1",
