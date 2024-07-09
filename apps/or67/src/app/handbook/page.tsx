@@ -8,13 +8,28 @@ import Handbook5 from '@/assets/images/handbook/handbook5.png';
 
 export default function Handbook(): JSX.Element {
     return (
-        <main>
-            <div>
-                <h1>คู่มือการลงทะเบียนเรียนใน REG CHULA</h1>
+        <main className='spactey-16 flex flex-col items-center justify-center pb-32 pt-8 text-2xl font-medium'>
+            <div className='flex w-full max-w-screen-lg flex-col items-center'>
+                <h1 className='text-3xl font-bold'>
+                    คู่มือการลงทะเบียนเรียนใน REG CHULA
+                </h1>
             </div>
-            <div>
-                <h2>ตรวจสอบตารางเรียน</h2>
-                <ol className='list-inside list-decimal'>
+            <div className='w-full space-y-10'>
+                <div className=' flex h-fit w-full flex-row space-x-6'>
+                    <div
+                        className='w-fit'
+                        style={{ backgroundColor: '#821923' }}
+                    >
+                        <h2 className='px-10 py-5 text-3xl font-bold text-white'>
+                            การตรวจสอบตารางเรียน
+                        </h2>
+                    </div>
+                    <div
+                        className='h-20 w-6'
+                        style={{ backgroundColor: '#821923' }}
+                    />
+                </div>
+                <ol className='list-decimal space-y-2 px-24'>
                     <li>
                         เข้าเว็บไซต์{' '}
                         <Link
@@ -30,19 +45,42 @@ export default function Handbook(): JSX.Element {
                         เพื่อตรวจสอบวิชาที่นิสิตลงทะเบียนได้
                     </li>
                     <li>
-                        โดยจะมีรหัสรายวิชา EXP ENG I
+                        โดยจะมีรหัสวิชาสองชุดในหัวข้อ &quot;วิชาลงทะเบียน&quot;
+                        คือรหัสกลุ่มรายวิชา และรหัสรายวิชา EXP ENG I
                         ซึ่งนิสิตจะต้องลงทะเบียนเรียนตามรหัส
                         และตอนเรียนที่กำหนดเท่านั้น
                     </li>
                     <li>
-                        นิสิตสามารถเลือกเมนู &quot;ตารางเรียน&quot;
-                        เพื่อดูตารางเรียนของตัวเองได้
+                        นิสิตสามารถกดปุ่ม &quot;ดูตารางเรียนใน CU GET REG&quot;{' '}
+                        <br />
+                        เพื่อสามารถดูตารางเรียนของตนเองในเว็บไซต์{' '}
+                        <Link
+                            className=' font-bold underline'
+                            href='https://cugetreg.com'
+                            style={{ color: '#821923' }}
+                        >
+                            https://cugetreg.com
+                        </Link>{' '}
+                        ได้
                     </li>
                 </ol>
             </div>
-            <div>
-                <h2>เข้าสู่ระบบลงทะเบียน</h2>
-                <ol className='list-inside list-decimal'>
+            <div className='w-full space-y-10'>
+                <div className=' flex h-fit w-full flex-row space-x-6'>
+                    <div
+                        className='w-fit'
+                        style={{ backgroundColor: '#821923' }}
+                    >
+                        <h2 className='px-10 py-5 text-3xl font-bold text-white'>
+                            ขั้นตอนการเข้าสู่ระบบลงทะเบียน
+                        </h2>
+                    </div>
+                    <div
+                        className='h-20 w-6'
+                        style={{ backgroundColor: '#821923' }}
+                    />
+                </div>
+                <ol className='list-decimal px-24'>
                     <li>
                         ให้นิสิตเข้าเว็ปไซต์{' '}
                         <Link
@@ -74,9 +112,22 @@ export default function Handbook(): JSX.Element {
                     </div>
                 </ol>
             </div>
-            <div>
-                <h2>ลงทะเบียนเรียน</h2>
-                <ol className='list-inside list-decimal'>
+            <div className='w-full space-y-10'>
+                <div className=' flex h-fit w-full flex-row space-x-6'>
+                    <div
+                        className='w-fit'
+                        style={{ backgroundColor: '#821923' }}
+                    >
+                        <h2 className='px-10 py-5 text-3xl font-bold text-white'>
+                            การลงทะเบียนเรียน
+                        </h2>
+                    </div>
+                    <div
+                        className='h-20 w-6'
+                        style={{ backgroundColor: '#821923' }}
+                    />
+                </div>
+                <ol className='list-decimal px-24'>
                     <li>เมื่อเข้าสู่ระบบได้แล้วจะพบหน้าต่างดังรูป</li>
                     <div>
                         <Image alt='Handbook 4' src={Handbook4} />
@@ -85,16 +136,37 @@ export default function Handbook(): JSX.Element {
                     <div>
                         <Image alt='Handbook 5' src={Handbook5} />
                     </div>
-                    <li>
-                        สำหรับกลุ่มรายวิชา ให้นิสิตเปลี่ยนคำว่า “เท่านั้น” เป็น
-                        G และใส่รหัสกลุ่มรายวิชาบริเวณสีแดง
-                    </li>
-                    <li>
-                        สำหรับรายวิชา EXP ENG I (5500111)
-                        ให้นิสิตกรอกตอนเรียนของตนเองหน้าช่อง “เท่านั้น”
-                        บริเวณสีน้ำเงิน และเขียวตามลำดับ
-                    </li>
-                    <li>กดบันทึก</li>
+                    <ol className='space-y-4 px-16'>
+                        <li>
+                            2.1 สำหรับกลุ่มรายวิชา ให้นิสิตเปลี่ยนคำว่า{' '}
+                            <span
+                                className='font-bold underline'
+                                style={{ color: '#821923' }}
+                            >
+                                เท่านั้น
+                            </span>{' '}
+                            เป็น{' '}
+                            <span
+                                className='font-bold underline'
+                                style={{ color: '#821923' }}
+                            >
+                                G
+                            </span>{' '}
+                            และใส่รหัสกลุ่มรายวิชาบริเวณสีแดง <br />
+                        </li>
+                        <li>
+                            2.2 สำหรับรายวิชา EXP ENG I (5500111)
+                            ให้นิสิตกรอกตอนเรียนของตนเองหน้าช่อง{' '}
+                            <span
+                                className='font-bold underline'
+                                style={{ color: '#821923' }}
+                            >
+                                เท่านั้น
+                            </span>{' '}
+                            บริเวณสีน้ำเงินและเขียว ตามลำดับ <br />
+                        </li>
+                        <li>2.3 กดบันทึก</li>
+                    </ol>
                 </ol>
             </div>
         </main>
