@@ -59,10 +59,10 @@ export default function Page(): JSX.Element {
 
     return (
         <main className='flex flex-col items-center'>
-            <h2 className='mb-12 text-center text-2xl font-semibold lg:text-4xl'>
+            <h2 className='mb-12 text-center text-2xl font-semibold md:text-4xl'>
                 ปฏิทินคณะ
             </h2>
-            <div className='grid w-full max-w-sm grid-cols-1 gap-5 lg:max-w-none lg:grid-cols-3'>
+            <div className='grid w-full max-w-sm grid-cols-1 gap-5 md:max-w-none md:grid-cols-3'>
                 <article className='text-base'>
                     <div className='z-0'>
                         <Carousel orientation='horizontal' setApi={setApi}>
@@ -128,7 +128,7 @@ export default function Page(): JSX.Element {
                     </p>
                 </article>
             </div>
-            <div className='flex flex-col items-center lg:m-20'>
+            <div className='flex flex-col items-center md:m-20'>
                 <h3>ติดตามข่าวสารเพิ่มเติมได้ที่</h3>
                 <div className='m-4 flex flex-row gap-x-5'>
                     <Link

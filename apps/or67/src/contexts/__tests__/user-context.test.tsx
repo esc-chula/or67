@@ -87,6 +87,20 @@ const mockUser: UserContextType = {
                 ],
             },
         ],
+        expEngSection: {
+            section: 1,
+            studentStart: 1,
+            studentEnd: 30,
+            classes: [
+                {
+                    format: 'Lecture',
+                    day: 'Monday',
+                    timeStart: '08:00',
+                    timeEnd: '10:00',
+                    location: 'บ้าน',
+                },
+            ],
+        },
     },
     setUser: vitest.fn(),
     logout: vitest.fn(),
