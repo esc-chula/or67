@@ -31,11 +31,11 @@ export default function LandingPage(): JSX.Element {
                     alt='background Image'
                     className='object-cover'
                     fill
-                    src={backgroundPattern as StaticImport}
+                    src={backgroundPattern}
                 />
             </div>
             <div className='flex h-3/6 md:h-4/6 w-full md:w-3/6 flex-col items-center justify-center rounded-3xl shadow-[0_0px_10px_0_rgba(130,25,35,0.75)] z-0'>
-                <div className='flex h-full w-full flex-col items-center justify-center rounded-3xl bg-white pb-2 pt-2 pl-3 pr-3 drop-shadow-none'>
+                <div className='flex h-full w-full flex-col items-center justify-center rounded-3xl bg-white py-2 px-3'>
                     <Image
                         alt='ESC Logo'
                         className='h-2/6  p-5'
