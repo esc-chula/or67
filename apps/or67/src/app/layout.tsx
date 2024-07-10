@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { cn } from '@ui/lib/utils';
+import { Toaster } from '@ui/components/ui/toaster';
 import { ibmPlexSansThai, manrope } from '@/libs/font';
 import { NavTop, NavBottom } from '@/components/nav';
 import { UserProvider } from '@/contexts/user-context';
@@ -28,6 +29,7 @@ export default function RootLayout({
                     <NavTop />
                     <main className='flex w-full max-w-6xl flex-1 flex-col px-5'>
                         {children}
+                        <Toaster />
                     </main>
                     <NavBottom />
                 </UserProvider>

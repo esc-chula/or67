@@ -17,7 +17,7 @@ export interface Link {
 
 export const links: Link[] = [
     {
-        href: '/',
+        href: '/profile',
         label: 'ข้อมูลนิสิต',
         icon: ProfileIcon,
         needFill: false,
