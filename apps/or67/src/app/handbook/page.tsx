@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ESCLogoWithText } from '@ui/components/esc';
+import { BackIcon } from '@/assets/icons/back';
 import Handbook1 from '@/assets/images/handbook/handbook1.png';
 import Handbook2 from '@/assets/images/handbook/handbook2.png';
 import Handbook3 from '@/assets/images/handbook/handbook3.png';
@@ -9,8 +10,11 @@ import Handbook5 from '@/assets/images/handbook/handbook5.png';
 
 export default function Handbook(): JSX.Element {
     return (
-        <main className='text-medium flex flex-col items-center justify-center space-y-16 pb-16 font-medium lg:pb-32 lg:text-2xl'>
-            <div className='flex w-full max-w-screen-lg flex-col items-center space-y-8 pt-8 lg:space-y-0 lg:pt-0'>
+        <main className='text-medium flex flex-col justify-center space-y-16 pb-16 font-medium lg:pb-32 lg:text-2xl'>
+            <Link href='/'>
+                <BackIcon className='size-7 items-start lg:hidden' />
+            </Link>
+            <div className='flex w-full max-w-screen-lg flex-col items-center space-y-8 lg:space-y-0 lg:pt-0'>
                 <div className='lg:hidden'>
                     <ESCLogoWithText />
                 </div>
