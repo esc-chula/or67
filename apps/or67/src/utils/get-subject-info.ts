@@ -1,4 +1,4 @@
-import type { Subject } from '@/types/subject';
+import type { Section, Subject } from '@/types/subject';
 import { fetcher } from './data-fetcher';
 import { validateSubjectCode } from './validator';
 
@@ -19,4 +19,23 @@ export const getSubjectsInfo = async (
     }
 
     return subject;
+};
+
+export const getExpEngSectionByStudentIndex = async (
+    studentIndex: string
+): Promise<Section> => {
+    const expEng = await getSubjectsInfo('5500111');
+
+    const section = expEng.sections.find((s) => {
+        return (
+            s.studentStart <= parseInt(studentIndex) &&
+            parseInt(studentIndex) <= s.studentEnd
+        );
+    });
+
+    if (!section) {
+        throw new Error('Section not found');
+    }
+
+    return section;
 };

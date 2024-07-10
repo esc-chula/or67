@@ -8,7 +8,10 @@ import {
     vi,
 } from 'vitest';
 import type { Subject } from '@/types/subject';
-import { getSubjectsInfo } from '../get-subject-info';
+import {
+    getExpEngSectionByStudentIndex,
+    getSubjectsInfo,
+} from '../get-subject-info';
 import { fetcher } from '../data-fetcher';
 
 const subjects: Subject[] = [
@@ -35,6 +38,30 @@ const subjects: Subject[] = [
                 ],
             },
         ],
+    },
+    {
+        index: '2',
+        sections: [
+            {
+                section: 1,
+                classes: [
+                    {
+                        format: 'บ/ป',
+                        day: 'พุธ',
+                        timeStart: '13:00',
+                        timeEnd: '16:00',
+                        location: 'ENG3 319',
+                    },
+                ],
+                studentStart: 1,
+                studentEnd: 10,
+            },
+        ],
+        code: '5500111',
+        name: 'EXP ENG 1',
+        lectureCredit: 2,
+        midterm: '25 ก.ย. 66 เวลา 08:30-10:30 น.',
+        final: '27 พ.ย.66 เวลา 08:30-10:30 น.',
     },
 ];
 
@@ -71,6 +98,29 @@ describe('getSubjectInfo', () => {
 
         await expect(getSubjectsInfo('9999999')).rejects.toThrow(
             'Subject not found'
+        );
+    });
+});
+
+describe('getExpEngSectionByStudentIndex', () => {
+    beforeEach(() => {
+        vi.mocked(fetcher).mockImplementationOnce(async () =>
+            Promise.resolve(subjects)
+        );
+    });
+
+    afterEach(() => {
+        vi.resetAllMocks();
+    });
+
+    test('returns a section', async () => {
+        const section = await getExpEngSectionByStudentIndex('1');
+        expect(section).toEqual(subjects[1].sections[0]);
+    });
+
+    test('throws an error if the section is not found', async () => {
+        await expect(getExpEngSectionByStudentIndex('11')).rejects.toThrow(
+            'Section not found'
         );
     });
 });

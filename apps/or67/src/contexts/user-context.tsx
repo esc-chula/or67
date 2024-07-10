@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import type { Group } from '@/types/group';
 import type { Student } from '@/types/student';
-import type { Subject } from '@/types/subject';
+import type { Section, Subject } from '@/types/subject';
 import type { Teacher } from '@/types/teacher';
 import { getStudentInfo } from '@/utils/get-student-info';
 import {
@@ -12,7 +12,10 @@ import {
     setStudentCookie,
 } from '@/utils/cookie';
 import { getTeacherInfo } from '@/utils/get-teacher-info';
-import { getSubjectsInfo } from '@/utils/get-subject-info';
+import {
+    getExpEngSectionByStudentIndex,
+    getSubjectsInfo,
+} from '@/utils/get-subject-info';
 import { getGroupInfo } from '@/utils/get-group-info';
 
 export interface UserContextType {
@@ -21,6 +24,7 @@ export interface UserContextType {
         teacher: Teacher | undefined;
         subjects: Subject[];
         group: Group | undefined;
+        expEngSection: Section | undefined;
     };
     setUser: (studentId: string) => void;
     logout: () => void;
@@ -40,6 +44,7 @@ function UserProvider({
     const [teacher, setTeacher] = useState<Teacher>();
     const [subjects, setSubjects] = useState<Subject[]>([]);
     const [group, setGroup] = useState<Group>();
+    const [expEngSection, setExpEngSection] = useState<Section>();
     const [error, setError] = useState<Error>();
     const router = useRouter();
     const pathname = usePathname();
@@ -55,10 +60,14 @@ function UserProvider({
                         getSubjectsInfo(subject.code)
                     )
                 );
+                const expEngSectionData = await getExpEngSectionByStudentIndex(
+                    studentData.index
+                );
                 setStudent(studentData);
                 setStudentCookie(studentData.id);
                 setTeacher(teacherData);
                 setGroup(groupData);
+                setExpEngSection(expEngSectionData);
                 setSubjects(subjectsData.flat());
                 setError(undefined);
             } catch (err) {
@@ -95,7 +104,7 @@ function UserProvider({
     return (
         <UserContext.Provider
             value={{
-                user: { student, teacher, subjects, group },
+                user: { student, teacher, subjects, group, expEngSection },
                 setUser,
                 logout,
                 error,

@@ -3,7 +3,8 @@ name: Trigger Vercel Deployments
 on:
     push:
         branches:
-            - '**'
+            - main
+            - develop
     workflow_dispatch:
 
 jobs:
