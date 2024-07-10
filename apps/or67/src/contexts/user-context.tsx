@@ -89,6 +89,7 @@ function UserProvider({
 
     useEffect(() => {
         if (!student && pathname !== '/') router.push('/');
+        if (student && pathname === '/') router.push('/profile');
     }, [router, pathname, student]);
 
     return (
