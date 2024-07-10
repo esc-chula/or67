@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { ESCLogoWithText } from '@ui/components/esc';
 import { Button } from '@ui/components/ui/button';
+import { cn } from '@ui/lib/utils';
 import { useUser } from '@/contexts/user-context';
 import { BookIcon, SignoutIcon } from '@/assets/icons';
 import { links } from './links';
@@ -20,7 +21,12 @@ export function Top(): JSX.Element | null {
         return null;
 
     return (
-        <header className='bg-background sticky top-0 flex w-full max-w-6xl items-center justify-between border-b text-xl font-medium max-lg:mb-8 max-lg:p-4 lg:my-16 lg:rounded-full lg:border-b-0 lg:px-12 lg:py-6 lg:shadow-lg'>
+        <header
+            className={cn(
+                'bg-background sticky top-0 z-50 flex w-full max-w-6xl items-center justify-between border-b text-xl font-medium max-lg:mb-8 max-lg:p-4 lg:my-16 lg:rounded-full lg:border-b-0 lg:px-12 lg:py-6 lg:shadow-lg',
+                pathname === '/handbook' && 'hidden md:flex'
+            )}
+        >
             <ESCLogoWithText className='aspect-auto w-9' />
             <ul className='hidden gap-10 lg:flex'>
                 {links.map((link) => (
