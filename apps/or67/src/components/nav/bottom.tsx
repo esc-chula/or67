@@ -14,7 +14,7 @@ export function Bottom(): JSX.Element | null {
         return null;
 
     return (
-        <nav className='bg-background sticky bottom-0 mt-8 w-full border-t p-6 text-xs tracking-tighter max-lg:flex sm:text-sm md:text-base lg:hidden'>
+        <nav className='bg-background sticky bottom-0 mt-8 h-24 w-full border-t p-6 text-xs tracking-tighter max-lg:flex sm:text-sm md:text-base lg:hidden'>
             <ul className='text-primary flex w-full items-center justify-between gap-5'>
                 {links.map((link) => (
                     <li key={link.href}>
