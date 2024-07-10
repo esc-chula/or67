@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import Image, { StaticImageData } from 'next/image';
+import Image, { type StaticImageData } from 'next/image';
 import { useState, useEffect } from 'react';
 import {
     Carousel,
@@ -10,21 +10,21 @@ import {
 } from '@ui/components/ui/carousel';
 import { FacebookIcon } from '@/assets/icons/facebook';
 import { InstagramIcon } from '@/assets/icons/instagram';
-import Calendar_1 from '@/assets/images/calendar/calendar_1.png';
-import Calendar_2 from '@/assets/images/calendar/calendar_2.png';
-import CalendarCarousel_1 from '@/assets/images/calendar/calendarCarousel_1.png';
-import CalendarCarousel_2 from '@/assets/images/calendar/calendarCarousel_2.png';
-import CalendarCarousel_3 from '@/assets/images/calendar/calendarCarousel_3.png';
+import Calendar1 from '@/assets/images/calendar/calendar_1.png';
+import Calendar2 from '@/assets/images/calendar/calendar_2.png';
+import CalendarCarousel1 from '@/assets/images/calendar/calendarCarousel_1.png';
+import CalendarCarousel2 from '@/assets/images/calendar/calendarCarousel_2.png';
+import CalendarCarousel3 from '@/assets/images/calendar/calendarCarousel_3.png';
 
 const calendarCarousel: { src: StaticImageData }[] = [
     {
-        src: CalendarCarousel_1,
+        src: CalendarCarousel1,
     },
     {
-        src: CalendarCarousel_2,
+        src: CalendarCarousel2,
     },
     {
-        src: CalendarCarousel_3,
+        src: CalendarCarousel3,
     },
 ];
 
@@ -49,24 +49,36 @@ export default function Page(): JSX.Element {
             <h2 className='mb-12 text-center text-2xl font-semibold lg:text-4xl'>
                 ปฏิทินคณะ
             </h2>
-            <div className='grid grid-cols-1 gap-5 lg:grid-cols-3 w-full'>
+            <div className='grid w-full grid-cols-1 gap-5 lg:grid-cols-3'>
                 <article className='text-base '>
                     <div className='z-0'>
                         <Carousel orientation='horizontal' setApi={setApi}>
                             <CarouselContent>
                                 {calendarCarousel.map((item, index) => (
-                                    <CarouselItem key={index}
-                                    className=''>
-                                        <Image
-                                            src={item.src}
-                                            alt='_blank'
-                                        />
+                                    <CarouselItem
+                                        key={`carousel-${index + 1}`}
+                                        className='w-full h-full'
+                                    >
+                                        <Image src={item.src} alt='_blank' />
                                     </CarouselItem>
                                 ))}
                             </CarouselContent>
                         </Carousel>
                     </div>
-                    <p className='mt-4 mb-12 px-2 text-start'>
+                    <div className='flex justify-center pt-4'>
+                        {calendarCarousel.map((_, index) => (
+                            <button
+                                key={`calendar-${index + 1}`}
+                                onClick={() => api?.scrollTo(index)}
+                                className={`${
+                                    current === index + 1
+                                        ? 'bg-gray-800'
+                                        : 'bg-gray-300'
+                                } m-1 h-2 w-2 rounded-full`}
+                            ></button>
+                        ))}
+                    </div>
+                    <p className='mb-12 mt-4 px-2 text-start'>
                         📍 ขอเชิญชวนให้นิสิตใหม่ Intania 108 ทุกคนเข้ากลุ่ม
                         Facebook และ LINE OpenChat เพื่อติดตามข่าวสาร ประกาศ
                         และกิจกรรมต่าง ๆ ภายในวิศวฯ จุฬาฯ กันนะ
@@ -84,12 +96,9 @@ export default function Page(): JSX.Element {
                         </a>
                     </p>
                 </article>
-                <article className='text-base w-full h-full items-center'>
-                    <Image
-                        src={Calendar_1}
-                        alt='_blank'
-                    />
-                    <p className='mt-4 mb-12 px-2 text-start'>
+                <article className='h-full w-full items-center text-base'>
+                    <Image src={Calendar1} alt='_blank' />
+                    <p className='mb-12 mt-4 px-2 text-start'>
                         📣 กำหนดการกิจกรรมสำหรับนิสิตวิศวฯ ⚙️🗓️
                         <br />
                         <br />
@@ -99,11 +108,8 @@ export default function Page(): JSX.Element {
                     </p>
                 </article>
                 <article className='text-base'>
-                    <Image
-                        src={Calendar_2}
-                        alt='_blank'
-                    />
-                    <p className='mt-4 mb-12 px-2 text-start'>
+                    <Image src={Calendar2} alt='_blank' />
+                    <p className='mb-12 mt-4 px-2 text-start'>
                         📣 กำหนดการการลงทะเบียนนิสิตใหม่ ภาคการศึกษาต้น
                         ปีการศึกษา 2567 ⚙️📚 [รหัส 67]
                     </p>
