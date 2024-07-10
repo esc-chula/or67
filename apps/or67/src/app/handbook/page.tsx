@@ -12,7 +12,7 @@ export default function Handbook(): JSX.Element {
     return (
         <main className='text-medium flex flex-col justify-center space-y-16 pb-16 font-medium lg:pb-32 lg:text-2xl'>
             <Link href='/'>
-                <BackIcon className='size-7 items-start lg:hidden' />
+                <BackIcon className='lg:hidde stroke-primary size-7 items-start' />
             </Link>
             <div className='flex w-full max-w-screen-lg flex-col items-center space-y-8 lg:space-y-0 lg:pt-0'>
                 <div className='lg:hidden'>

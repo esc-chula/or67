@@ -1,6 +1,6 @@
 import type { SvgIconProps } from './type';
 
-export function BackIcon({ className, fill }: SvgIconProps): JSX.Element {
+export function BackIcon({ className }: SvgIconProps): JSX.Element {
     return (
         <svg
             className={className}
@@ -12,11 +12,9 @@ export function BackIcon({ className, fill }: SvgIconProps): JSX.Element {
         >
             <path
                 d='M8 5L0.999938 12.0001L8 19.0001'
-                stroke='black'
-                stroke-width='2'
-                stroke-linecap='round'
-                stroke-linejoin='round'
-                fill={fill}
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth='2'
             />
         </svg>
     );
