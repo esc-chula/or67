@@ -10,7 +10,10 @@ export function Bottom(): JSX.Element | null {
     const pathname = usePathname();
     const { user } = useUser();
 
-    if (!user.student || !links.some((link) => link.href === pathname))
+    if (
+        pathname !== '/handbook' &&
+        (!user.student || !links.some((link) => link.href === pathname))
+    )
         return null;
 
     return (

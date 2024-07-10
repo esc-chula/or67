@@ -13,7 +13,10 @@ export function Top(): JSX.Element | null {
     const pathname = usePathname();
     const { user, logout } = useUser();
 
-    if (!user.student || !links.some((link) => link.href === pathname))
+    if (
+        pathname !== '/handbook' &&
+        (!user.student || !links.some((link) => link.href === pathname))
+    )
         return null;
 
     return (
