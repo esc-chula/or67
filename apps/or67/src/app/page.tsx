@@ -31,7 +31,7 @@ export default function LandingPage(): JSX.Element {
                     alt='background Image'
                     className='object-cover'
                     fill
-                    src={backgroundPattern}
+                    src={backgroundPattern as StaticImport}
                 />
             </div>
             <div className='flex h-3/6 md:h-4/6 w-full md:w-3/6 flex-col items-center justify-center rounded-3xl shadow-[0_0px_10px_0_rgba(130,25,35,0.75)] z-0'>
