@@ -10,6 +10,7 @@ const teachers: Teacher[] = [
         name: 'รศ.ดร.อาจารย์ ที่ดี',
         room: 'ห้อง 123 ตึก 3',
         program: 'วิศวกรรมคอมพิวเตอร์-โอลิมปิกวิชาการ',
+        email: 'Ajarn@Teedee.com'
     },
     {
         index: '2',
@@ -17,6 +18,7 @@ const teachers: Teacher[] = [
         name: 'ผศ.ดร.สุดยอด ไปเลย',
         room: 'ห้อง 321 ตึก 1',
         program: 'วิศวกรรมคอมพิวเตอร์และเทคโนโลยีดิจิทัล',
+        email: 'Sudyod@Pailoei.com'
     },
 ];
 

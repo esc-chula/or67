@@ -6,4 +6,5 @@ export interface Teacher {
     name: string;
     room: string;
     program: Program;
+    email: string;
 }
