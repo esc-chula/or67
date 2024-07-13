@@ -1,6 +1,6 @@
 import { PopoverContent } from '@ui/components/ui/popover';
 import { Fragment } from 'react';
-import type { SubjectWithSpecificSection } from '@/app/(no-max-w)/schedule/page';
+import type { SubjectWithSpecificSection } from '@/types/subject';
 
 interface SubjectCardProps {
     subject: SubjectWithSpecificSection;

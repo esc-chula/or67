@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useToast } from '@ui/hooks/use-toast';
 import { Button } from '@ui/components/ui/button';
-import type { Section, Subject } from '@/types/subject';
+import type { SubjectWithSpecificSection } from '@/types/subject';
 import type { UserContextType } from '@/contexts/user-context';
 import { useUser } from '@/contexts/user-context';
 import TimeTable from '@/components/schedule/timetable';
@@ -11,10 +11,6 @@ import { getSubjectsInfo } from '@/utils/get-subject-info';
 import { takeScreenshot } from '@/utils/take-screenshot';
 import { BaseSubjectCardContent } from '@/components/schedule/subject-card';
 import Map from '@/components/schedule/map';
-
-export interface SubjectWithSpecificSection extends Omit<Subject, 'sections'> {
-    section: Section;
-}
 
 export default function Page(): JSX.Element {
     const { user } = useUser();

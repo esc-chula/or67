@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Popover, PopoverTrigger } from '@ui/components/ui/popover';
 import { Button } from '@ui/components/ui/button';
 import { useMediaQuery } from '@/hooks/use-media-query';
-import type { SubjectWithSpecificSection } from '@/app/(no-max-w)/schedule/page';
+import type { SubjectWithSpecificSection } from '@/types/subject';
 import SubjectCard from './subject-card';
 
 interface SubjectTimeboxProps {

@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react';
 import { forwardRef, useEffect, useState } from 'react';
-import type { SubjectWithSpecificSection } from '@/app/(no-max-w)/schedule/page';
+import type { SubjectWithSpecificSection } from '@/types/subject';
 import SubjectTimebox from './subject-timebox';
 
 interface TimeTableProps extends ComponentPropsWithoutRef<'div'> {
