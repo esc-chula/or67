@@ -22,3 +22,7 @@ export interface Subject {
     final: string;
     sections: Section[];
 }
+
+export interface SubjectWithSpecificSection extends Omit<Subject, 'sections'> {
+    section: Section;
+}

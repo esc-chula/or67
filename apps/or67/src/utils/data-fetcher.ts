@@ -1,6 +1,6 @@
 export async function fetcher<ReturnType>(url: string): Promise<ReturnType> {
     try {
-        const res = await fetch(url);
+        const res = await fetch(url, { cache: 'force-cache' });
         if (res.ok) {
             const data = (await res.json()) as ReturnType;
             return data;

@@ -20,7 +20,7 @@ export default function RootLayout({
         <html lang='en'>
             <body
                 className={cn(
-                    'bg-background relative flex min-h-dvh flex-col items-center font-sans antialiased',
+                    'bg-background flex min-h-dvh flex-col items-center font-sans antialiased',
                     manrope.variable,
                     ibmPlexSansThai.variable
                 )}
@@ -28,9 +28,9 @@ export default function RootLayout({
                 <UserProvider>
                     <NavTop />
                     {children}
-                    <Toaster />
                     <NavBottom />
                 </UserProvider>
+                <Toaster />
             </body>
         </html>
     );
