@@ -27,10 +27,8 @@ export default function RootLayout({
             >
                 <UserProvider>
                     <NavTop />
-                    <main className='flex w-full max-w-6xl flex-1 flex-col px-5'>
-                        {children}
-                        <Toaster />
-                    </main>
+                    {children}
+                    <Toaster />
                     <NavBottom />
                 </UserProvider>
             </body>
