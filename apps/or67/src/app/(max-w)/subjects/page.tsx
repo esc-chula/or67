@@ -17,7 +17,7 @@ export default function Page(): JSX.Element {
                     <GroupSubject groupCode={user.group?.groupCode || ''} />
                     {user.expEngSection ? (
                         <SubjectCard
-                            sec={user.expEngSection}
+                            section={user.expEngSection}
                             subjectCode='5500111'
                             subjectName='EXP ENG 1'
                         />
