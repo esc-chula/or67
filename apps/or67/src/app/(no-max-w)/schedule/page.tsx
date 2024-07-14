@@ -66,6 +66,28 @@ export default function Page(): JSX.Element {
         });
     }, [toast]);
 
+    const checkOverlap = (): SubjectWithSpecificSection[] => {
+        const overlap = subjects.filter((subject) => {
+            const { section } = subject;
+            return subjects.some(
+                (s) =>
+                    s.code !== subject.code &&
+                    s.section.classes.some((c) =>
+                        section.classes.some(
+                            (c2) =>
+                                c.day === c2.day &&
+                                ((c.timeStart >= c2.timeStart &&
+                                    c.timeStart < c2.timeEnd) ||
+                                    (c.timeEnd > c2.timeStart &&
+                                        c.timeEnd <= c2.timeEnd))
+                        )
+                    )
+            );
+        });
+
+        return overlap;
+    };
+
     return (
         <div className='flex w-full flex-col items-center gap-16 pb-16 md:pb-0'>
             <section className='flex w-full max-w-6xl flex-col gap-2 sm:px-4'>
@@ -99,6 +121,61 @@ export default function Page(): JSX.Element {
                             <BaseSubjectCardContent subject={focusSubject} />
                         </div>
                     </article>
+                ) : null}
+                {/* if there are overlapping subjects */}
+                {checkOverlap().length > 0 ? (
+                    <div className='flex flex-col gap-2'>
+                        <h2 className='text-center text-2xl font-semibold'>
+                            คุณมีวิชาที่ซ้อนทับกัน
+                        </h2>
+                        <div className='flex flex-col gap-2'>
+                            {checkOverlap().map((subject) => (
+                                <article
+                                    className='flex w-full flex-col gap-2 px-4'
+                                    key={subject.code}
+                                >
+                                    <div className='flex w-full flex-col gap-2 rounded-lg px-4 py-5 shadow-lg'>
+                                        <h3 className='flex w-full flex-wrap gap-2'>
+                                            <span className='font-semibold'>
+                                                {subject.code}
+                                            </span>
+                                            <span>{subject.name}</span>
+                                            <span className='text-muted-foreground'>
+                                                (
+                                                {subject.lectureCredit
+                                                    ? `บรรยาย ${subject.lectureCredit}`
+                                                    : null}
+                                                {subject.labCredit
+                                                    ? (subject.lectureCredit
+                                                          ? ' หน่วยกิต / '
+                                                          : ''
+                                                      ).concat(
+                                                          `ปฏิบัติ ${subject.labCredit}`
+                                                      )
+                                                    : null}{' '}
+                                                หน่วยกิต)
+                                            </span>
+                                        </h3>
+                                        <hr className='w-full' />
+                                        {subject.section.classes.map((c) => (
+                                            <div
+                                                className='flex flex-col'
+                                                key={`${subject.code}-${c.day}-${c.timeStart}`}
+                                            >
+                                                <h4 className='font-semibold'>
+                                                    {c.format}
+                                                </h4>
+                                                <p>
+                                                    {c.day} {c.timeStart} -{' '}
+                                                    {c.timeEnd}
+                                                </p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </article>
+                            ))}
+                        </div>
+                    </div>
                 ) : null}
             </section>
             <Map />
