@@ -189,14 +189,26 @@ export default function Page(): JSX.Element {
                                     </span>
                                     <span>{subject.name}</span>
                                     <span className='text-muted-foreground'>
-                                        ({subject.lectureCredit} หน่วยกิต)
+                                        (
+                                        {subject.lectureCredit
+                                            ? `บรรยาย ${subject.lectureCredit}`
+                                            : null}
+                                        {subject.labCredit
+                                            ? (subject.lectureCredit
+                                                  ? ' หน่วยกิต / '
+                                                  : ''
+                                              ).concat(
+                                                  `ปฏิบัติ ${subject.labCredit}`
+                                              )
+                                            : null}{' '}
+                                        หน่วยกิต)
                                     </span>
                                 </h3>
                                 <hr className='w-full' />
                                 {subject.section.classes.map((c) => (
                                     <div
                                         className='flex flex-col'
-                                        key={`${c.day}-${c.timeStart}`}
+                                        key={`${subject.code}-${c.day}-${c.timeStart}`}
                                     >
                                         <h4 className='font-semibold'>
                                             {c.format}
