@@ -1,8 +1,6 @@
 export const validateStudentId = (studentId: string): boolean => {
-    // TODO: update the pattern to match this year's student IDs format
-
-    // starts with "663", then digit exactly 5 times, ends with "21"
-    const pattern = /^663\d{5}21$/;
+    // starts with "673", then digit exactly 5 times, ends with "21"
+    const pattern = /^673\d{5}21$/;
     return pattern.test(studentId);
 };
 

@@ -17,7 +17,8 @@ export interface Subject {
     index: string;
     code: string;
     name: string;
-    lectureCredit: number;
+    lectureCredit?: number;
+    labCredit?: number;
     midterm: string;
     final: string;
     sections: Section[];

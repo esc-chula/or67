@@ -21,6 +21,7 @@ const mockUser: UserContextType = {
             name: 'Teacher 1',
             room: 'Room 1',
             program: 'วิศวกรรมคอมพิวเตอร์-โอลิมปิกวิชาการ',
+            email: '@teacher1',
         },
         group: {
             index: '1',

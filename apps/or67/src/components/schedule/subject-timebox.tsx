@@ -23,7 +23,7 @@ const mapDay: Record<string, number> = {
     จันทร์: 0,
     อังคาร: 1,
     พุธ: 2,
-    พฤหัส: 3,
+    พฤหัสบดี: 3,
     ศุกร์: 4,
 };
 
@@ -57,7 +57,7 @@ export default function SubjectTimebox({
                     return (
                         <Button
                             className='border-primary/30 absolute z-10 flex h-1/5 flex-col place-content-center rounded-3xl border text-center shadow-lg'
-                            key={`${item.day}-${item.start}`}
+                            key={`${subject.code}-${item.day}-${item.start}`}
                             onClick={() => {
                                 onSelectSubject(subject);
                             }}
@@ -69,16 +69,16 @@ export default function SubjectTimebox({
                             type='button'
                             variant='outline'
                         >
-                            <p className='text-[0.8rem] font-extrabold lg:text-sm'>
+                            <p className='max-w-full text-[0.8rem] font-extrabold lg:text-sm'>
                                 {subject.name}
                             </p>
-                            <p className='text-[0.7rem] font-semibold text-gray-500'>
+                            <p className='max-w-full text-[0.7rem] font-semibold text-gray-500'>
                                 {item.start} - {item.end}
                             </p>
                         </Button>
                     );
                 return (
-                    <Popover key={`${item.day}-${item.start}`}>
+                    <Popover key={`${subject.code}-${item.day}-${item.start}`}>
                         <PopoverTrigger asChild>
                             <Button
                                 className='border-primary/30 absolute z-10 flex h-1/5 flex-col place-content-center rounded-3xl border text-center shadow-lg'
@@ -93,10 +93,10 @@ export default function SubjectTimebox({
                                 type='button'
                                 variant='outline'
                             >
-                                <p className='text-[0.8rem] font-extrabold lg:text-sm'>
+                                <p className='max-w-full text-[0.8rem] font-extrabold lg:text-sm'>
                                     {subject.name}
                                 </p>
-                                <p className='text-[0.7rem] font-semibold text-gray-500'>
+                                <p className='max-w-full text-[0.7rem] font-semibold text-gray-500'>
                                     {item.start} - {item.end}
                                 </p>
                             </Button>
