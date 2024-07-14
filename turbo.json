@@ -9,7 +9,8 @@
         "OR67_STUDENTS",
         "NEXT_PUBLIC_OR67_GROUPS",
         "NEXT_PUBLIC_OR67_SUBJECTS",
-        "NEXT_PUBLIC_OR67_TEACHERS"
+        "NEXT_PUBLIC_OR67_TEACHERS",
+        "NEXT_PUBLIC_GOOGLE_ANALYTICS_ID"
     ],
     "globalDependencies": ["**/.env.*local"],
     "tasks": {

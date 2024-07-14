@@ -12,6 +12,7 @@
     },
     "dependencies": {
         "@html2canvas/html2canvas": "^1.6.2",
+        "@next/third-parties": "^14.2.5",
         "@repo/axios": "workspace:*",
         "@repo/ui": "workspace:*",
         "cookies-next": "^4.2.1",
