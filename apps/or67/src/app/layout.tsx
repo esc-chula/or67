@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { cn } from '@ui/lib/utils';
 import { Toaster } from '@ui/components/ui/toaster';
 import { ibmPlexSansThai, manrope } from '@/libs/font';
@@ -32,6 +33,9 @@ export default function RootLayout({
                 </UserProvider>
                 <Toaster />
             </body>
+            <GoogleAnalytics
+                gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID ?? ''}
+            />
         </html>
     );
 }
