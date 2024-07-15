@@ -4,7 +4,7 @@ import { validateSubjectCode } from './validator';
 
 export const getSubjectsInfo = async (
     subjectCode: string
-): Promise<Subject> => {
+): Promise<Subject[]> => {
     if (!validateSubjectCode(subjectCode)) {
         throw new Error('Invalid subject code');
     }
@@ -18,7 +18,9 @@ export const getSubjectsInfo = async (
         throw new Error('Subject not found');
     }
 
-    return subject;
+    const sections = subjects.filter((s) => s.code === subjectCode);
+
+    return sections;
 };
 
 export const getExpEngSectionByStudentIndex = async (
@@ -26,16 +28,26 @@ export const getExpEngSectionByStudentIndex = async (
 ): Promise<Section> => {
     const expEng = await getSubjectsInfo('5500111');
 
-    const section = expEng.sections.find((s) => {
+    const found1 = expEng[0].sections.find((s) => {
         return (
             s.studentStart <= parseInt(studentIndex) &&
             parseInt(studentIndex) <= s.studentEnd
         );
     });
 
-    if (!section) {
-        throw new Error('Section not found');
+    const found2 = expEng[1].sections.find((s) => {
+        return (
+            s.studentStart <= parseInt(studentIndex) &&
+            parseInt(studentIndex) <= s.studentEnd
+        );
+    });
+
+    if (found1) {
+        return found1;
+    }
+    if (found2) {
+        return found2;
     }
 
-    return section;
+    throw new Error('Section not found');
 };
