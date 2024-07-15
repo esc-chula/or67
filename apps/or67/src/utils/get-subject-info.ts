@@ -4,7 +4,7 @@ import { validateSubjectCode } from './validator';
 
 export const getSubjectsInfo = async (
     subjectCode: string
-): Promise<Subject[]> => {
+): Promise<Subject> => {
     if (!validateSubjectCode(subjectCode)) {
         throw new Error('Invalid subject code');
     }
@@ -20,7 +20,19 @@ export const getSubjectsInfo = async (
 
     const sections = subjects.filter((s) => s.code === subjectCode);
 
-    return sections;
+    if (sections.length > 1) {
+        // merge sections
+        const mergedSections = sections.reduce<Section[]>((acc, curr) => {
+            return acc.concat(curr.sections);
+        }, []);
+
+        return {
+            ...subject,
+            sections: mergedSections,
+        };
+    }
+
+    return subject;
 };
 
 export const getExpEngSectionByStudentIndex = async (
@@ -28,26 +40,16 @@ export const getExpEngSectionByStudentIndex = async (
 ): Promise<Section> => {
     const expEng = await getSubjectsInfo('5500111');
 
-    const found1 = expEng[0].sections.find((s) => {
+    const found = expEng.sections.find((s) => {
         return (
             s.studentStart <= parseInt(studentIndex) &&
             parseInt(studentIndex) <= s.studentEnd
         );
     });
 
-    const found2 = expEng[1].sections.find((s) => {
-        return (
-            s.studentStart <= parseInt(studentIndex) &&
-            parseInt(studentIndex) <= s.studentEnd
-        );
-    });
-
-    if (found1) {
-        return found1;
-    }
-    if (found2) {
-        return found2;
+    if (!found) {
+        throw new Error('Section not found');
     }
 
-    throw new Error('Section not found');
+    return found;
 };
