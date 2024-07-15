@@ -53,22 +53,27 @@ function UserProvider({
         async function fetchData(): Promise<void> {
             try {
                 const studentData = await getStudentInfo(studentId);
+
                 const teacherData = await getTeacherInfo(studentData.index);
-                const groupData = await getGroupInfo(studentData.index);
-                const subjectsData = await Promise.all(
-                    groupData.subjects.map((subject) =>
-                        getSubjectsInfo(subject.code)
-                    )
-                );
-                const expEngSectionData = await getExpEngSectionByStudentIndex(
-                    studentData.index
-                );
+                if (
+                    studentData.program !==
+                    'วิศวกรรมคอมพิวเตอร์และเทคโนโลยีดิจิทัล'
+                ) {
+                    const groupData = await getGroupInfo(studentData.index);
+                    const subjectsData = await Promise.all(
+                        groupData.subjects.map((subject) =>
+                            getSubjectsInfo(subject.code)
+                        )
+                    );
+                    const expEngSectionData =
+                        await getExpEngSectionByStudentIndex(studentData.index);
+                    setGroup(groupData);
+                    setExpEngSection(expEngSectionData);
+                    setSubjects(subjectsData.flat());
+                }
                 setStudent(studentData);
                 setStudentCookie(studentData.id);
                 setTeacher(teacherData);
-                setGroup(groupData);
-                setExpEngSection(expEngSectionData);
-                setSubjects(subjectsData.flat());
                 setError(undefined);
             } catch (err) {
                 setError(
