@@ -116,7 +116,7 @@ export default function Page(): JSX.Element {
                     </Button>
                 </div>
                 {focusSubject ? (
-                    <article className='flex w-full px-4 md:hidden'>
+                    <article className='w-full px-4 max-md:flex md:hidden'>
                         <div className='relative flex w-full flex-col text-sm font-semibold shadow-lg'>
                             <BaseSubjectCardContent subject={focusSubject} />
                         </div>
