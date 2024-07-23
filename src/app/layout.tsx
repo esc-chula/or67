@@ -20,7 +20,7 @@ export default function RootLayout({
         <html lang='en'>
             <body
                 className={cn(
-                    'bg-background flex min-h-dvh flex-col items-center font-sans antialiased',
+                    'flex min-h-dvh flex-col items-center bg-background antialiased',
                     manrope.variable,
                     ibmPlexSansThai.variable
                 )}
