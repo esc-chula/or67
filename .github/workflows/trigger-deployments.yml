@@ -2,9 +2,7 @@ name: Trigger Vercel Deployments
 
 on:
     push:
-        branches:
-            - main
-            - develop
+        branches: ['develop']
     workflow_dispatch:
 
 jobs:
