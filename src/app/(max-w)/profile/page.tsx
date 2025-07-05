@@ -74,14 +74,14 @@ export default function Page(): JSX.Element {
                             {teacher.name}
                         </p>
                     </div>
-                    <div className='flex flex-col items-start justify-start'>
+                    {/* <div className='flex flex-col items-start justify-start'>
                         <p className='text-muted-foreground text-sm font-normal lg:text-base'>
                             อีเมลล์อาจารย์ที่ปรึกษา
                         </p>
                         <p className='text-base font-medium lg:text-lg'>
                             {teacher.email}
                         </p>
-                    </div>
+                    </div> */}
                     <div className='flex flex-col items-start justify-start'>
                         <p className='text-muted-foreground text-sm font-normal lg:text-base'>
                             สถานที่พบอาจารย์ที่ปรึกษา
