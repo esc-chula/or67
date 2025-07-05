@@ -31,15 +31,11 @@ export function Bottom(): JSX.Element | null {
                         >
                             <link.icon
                                 className={cn(
-                                    'w-6 md:w-7',
+                                    'w-6 md:w-7 stroke-primary',
                                     link.needFill &&
                                         (pathname === link.href
                                             ? 'fill-primary'
                                             : 'fill-carmine-200'),
-                                    link.needStroke &&
-                                        (pathname === link.href
-                                            ? 'stroke-primary'
-                                            : 'stroke-carmine-200')
                                 )}
                             />
                             <AnimatePresence>
