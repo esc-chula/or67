@@ -11,11 +11,11 @@ import {
 import { Button } from '@/components/ui/button';
 import { FacebookIcon } from '@/assets/icons/facebook';
 import { InstagramIcon } from '@/assets/icons/instagram';
-import Calendar1 from '@/assets/images/calendar/calendar_1.png';
-import Calendar2 from '@/assets/images/calendar/calendar_2.png';
-import CalendarCarousel1 from '@/assets/images/calendar/calendarCarousel_1.png';
-import CalendarCarousel2 from '@/assets/images/calendar/calendarCarousel_2.png';
-import CalendarCarousel3 from '@/assets/images/calendar/calendarCarousel_3.png';
+import Calendar1 from '@/assets/images/calendar/68_calendar.png';
+import Calendar2 from '@/assets/images/calendar/68_agenda.png';
+import CalendarCarousel1 from '@/assets/images/calendar/68_openchat1.jpg';
+import CalendarCarousel2 from '@/assets/images/calendar/68_openchat2.jpg';
+import CalendarCarousel3 from '@/assets/images/calendar/68_openchat3.jpg';
 
 const calendarCarousel: { src: StaticImageData }[] = [
     {
@@ -97,22 +97,22 @@ export default function Page(): JSX.Element {
                         ))}
                     </div>
                     <p className='mb-12 mt-4 px-2 text-start'>
-                        📍 ขอเชิญชวนให้นิสิตใหม่ Intania 108 ทุกคนเข้ากลุ่ม
+                        📍 ขอเชิญชวนให้นิสิตใหม่ Intania 109 ทุกคนเข้ากลุ่ม
                         Facebook และ LINE OpenChat เพื่อติดตามข่าวสาร ประกาศ
                         และกิจกรรมต่าง ๆ ภายในวิศวฯ จุฬาฯ กันนะ
                         <br />
                         <br />
-                        🚨 ชาว Intania 108
+                        🚨 ชาว Intania 109
                         ทุกคนอย่าลืมกรอกแบบฟอร์มนิสิตใหม่ก่อนที่จะขอเข้ากลุ่มกันด้วยนะ
                         ✨<br />
                         👉
                         <Link
                             className='z-50 underline'
-                            href='https://intania.link/108-entry-form'
+                            href='https://bit.ly/nisit109-entry-form'
                             rel='noopener noreferrer'
                             target='_blank'
                         >
-                            https://intania.link/108-entry-form
+                            https://bit.ly/nisit109-entry-form
                         </Link>
                     </p>
                 </Link>
@@ -127,7 +127,7 @@ export default function Page(): JSX.Element {
                         📣 กำหนดการกิจกรรมสำหรับนิสิตวิศวฯ ⚙️🗓️
                         <br />
                         <br />
-                        ชาว Intania 108
+                        ชาว Intania 109
                         ทุกคนจะได้เจอกับกิจกรรมต่างมากมายและพบเพื่อนทั้งในและนอกคณะ
                         บอกเลยว่าห้ามพลาดทุกกิจกรรมเลย !
                     </p>
