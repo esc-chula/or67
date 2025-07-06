@@ -8,7 +8,7 @@ export const getGroupInfo = async (studentIndex: string): Promise<Group> => {
     }
 
     const groups = await fetcher<Group[]>(
-        `${process.env.NEXT_PUBLIC_OR67_GROUPS}`
+        `${process.env.NEXT_PUBLIC_GROUPS}`
     );
 
     const groupInfo = groups.find(

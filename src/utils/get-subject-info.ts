@@ -10,7 +10,7 @@ export const getSubjectsInfo = async (
     }
 
     const subjects = await fetcher<Subject[]>(
-        `${process.env.NEXT_PUBLIC_OR67_SUBJECTS}`
+        `${process.env.NEXT_PUBLIC_SUBJECTS}`
     );
 
     const subject = subjects.find((s) => s.code === subjectCode);
