@@ -49,7 +49,7 @@ export default function Handbook(): JSX.Element {
                 <Header>การตรวจสอบตารางเรียน</Header>
                 <ol className='flex list-inside list-decimal flex-col gap-2 px-5'>
                     <li>
-                        เข้าเว็บไซต์ <Link href='https://or67.intania.org' />{' '}
+                        เข้าเว็บไซต์ <Link href='https://or68.intania.org' />{' '}
                         เพื่อตรวจสอบตารางเรียน
                     </li>
                     <li>

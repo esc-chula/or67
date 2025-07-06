@@ -9,7 +9,7 @@ export const GET = async (
     { params: { studentId } }: { params: { studentId: string } }
 ): Promise<NextResponse> => {
     try {
-        const url = process.env.OR67_STUDENTS;
+        const url = process.env.OR_STUDENTS;
         if (!url) {
             throw new Error('Invalid URL');
         }

@@ -10,7 +10,7 @@ export const getTeacherInfo = async (
     }
 
     const teachers = await fetcher<Teacher[]>(
-        `${process.env.NEXT_PUBLIC_OR67_TEACHERS}`
+        `${process.env.NEXT_PUBLIC_TEACHERS}`
     );
 
     const teacherData = teachers.find(
