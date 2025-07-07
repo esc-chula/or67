@@ -12,7 +12,7 @@ import { Button } from '@/components/ui/button';
 import { FacebookIcon } from '@/assets/icons/facebook';
 import { InstagramIcon } from '@/assets/icons/instagram';
 import Calendar1 from '@/assets/images/calendar/68_calendar.png';
-import Calendar2 from '@/assets/images/calendar/68_agenda.png';
+import Calendar2 from '@/assets/images/calendar/68_agenda.jpg';
 import CalendarCarousel1 from '@/assets/images/calendar/68_openchat1.jpg';
 import CalendarCarousel2 from '@/assets/images/calendar/68_openchat2.jpg';
 import CalendarCarousel3 from '@/assets/images/calendar/68_openchat3.jpg';
@@ -65,7 +65,7 @@ export default function Page(): JSX.Element {
             <div className='grid w-full max-w-sm grid-cols-1 gap-5 md:max-w-none md:grid-cols-3'>
                 <Link
                     className='text-base'
-                    href='https://www.instagram.com/p/C8ZjLTjuMQD/?hl=en&img_index=1'
+                    href='https://www.instagram.com/p/DLrvY20MUxD/?igsh=MnE2dm0xc2NqYTI2'
                     rel='noopener noreferrer'
                     target='_blank'
                 >
@@ -107,7 +107,7 @@ export default function Page(): JSX.Element {
                         ✨<br />
                         👉
                         <Link
-                            className='z-50 underline'
+                            className='z-50 underline text-primary font-bold'
                             href='https://bit.ly/nisit109-entry-form'
                             rel='noopener noreferrer'
                             target='_blank'
@@ -118,7 +118,7 @@ export default function Page(): JSX.Element {
                 </Link>
                 <Link
                     className='h-full w-full items-center text-base'
-                    href='https://www.instagram.com/p/C8ZICCbyOsx/?hl=en&img_index=2'
+                    href='https://www.instagram.com/p/DLPGG6DSFKV/?igsh=MWU0N3dtdG9zaG5uNw=='
                     rel='noopener noreferrer'
                     target='_blank'
                 >
@@ -134,14 +134,14 @@ export default function Page(): JSX.Element {
                 </Link>
                 <Link
                     className='text-base'
-                    href='https://www.instagram.com/p/C9CTl_atg6q/?hl=en'
+                    href='https://www.instagram.com/p/DLPIWbDSS4T/?igsh=NmFwc2c2cWd0eHJn'
                     rel='noopener noreferrer'
                     target='_blank'
                 >
                     <Image alt='' src={Calendar2} />
                     <p className='mb-12 mt-4 px-2 text-start'>
                         📣 กำหนดการการลงทะเบียนนิสิตใหม่ ภาคการศึกษาต้น
-                        ปีการศึกษา 2567 ⚙️📚 [รหัส 67]
+                        ปีการศึกษา 2568 ⚙️📚 [รหัส 68]
                     </p>
                 </Link>
             </div>
