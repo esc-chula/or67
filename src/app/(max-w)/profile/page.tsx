@@ -30,7 +30,9 @@ export default function Page(): JSX.Element {
                             {
                                 student.name.th
                                     .split(' ')
-                                    .filter((name) => name !== '')[1]
+                                    .filter((name) => name !== '')
+                                    .slice(1)
+                                    .join(' ')
                             }
                         </span>
                     </p>
